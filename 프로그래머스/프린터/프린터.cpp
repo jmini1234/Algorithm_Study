@@ -1,11 +1,11 @@
-#include <string>
+ï»¿#include <string>
 #include <vector>
 #include <queue>
 #include <algorithm>
 using namespace std;
-// location°ú Áß¿äµµ¸¦ Å¥¿¡ ¼ø¼­´ë·Î »ðÀÔ 
-// Áß¿äµµ¸¦ Á¤·ÄÇÏ¿© °¡Àå ³ôÀº °ªÀÇ ÀÎµ¦½º¸¦ »ç¿ë
-// Áß¿äµµ°¡ ÀÏÄ¡ÇÏ¸é ÇÑ°³¾¿ »©ÁÖ°í ÀÏÄ¡ÇÏÁö ¾ÊÀ¸¸é ´Ù½Ã Å¥¿¡ »ðÀÔ
+// locationê³¼ ì¤‘ìš”ë„ë¥¼ íì— ìˆœì„œëŒ€ë¡œ ì‚½ìž… 
+// ì¤‘ìš”ë„ë¥¼ ì •ë ¬í•˜ì—¬ ê°€ìž¥ ë†’ì€ ê°’ì˜ ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©
+// ì¤‘ìš”ë„ê°€ ì¼ì¹˜í•˜ë©´ í•œê°œì”© ë¹¼ì£¼ê³  ì¼ì¹˜í•˜ì§€ ì•Šìœ¼ë©´ ë‹¤ì‹œ íì— ì‚½ìž…
 int solution(vector<int> priorities, int location) {
 	int answer = 0;
 	queue<pair<int, int>> q;

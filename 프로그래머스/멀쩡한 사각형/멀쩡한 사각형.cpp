@@ -1,4 +1,4 @@
-#include <algorithm>
+ï»¿#include <algorithm>
 using namespace std;
 
 long long GCD(int a, int b) {
@@ -10,12 +10,12 @@ long long solution(int w, int h) {
 	long long answer = 1;
 	if (w > h)swap(w, h);
 	long long g = GCD(w, h);
-	//ÃÖ´ë°ø¾à¼ö°¡ 1ÀÌ ¾Æ´Ñ »ç°¢ÇüÀº µ¿ÀÏ ÆÐÅÏÀÌ g*g °¹¼ö ¸¸Å­ ¹Ýº¹µÊ
+	//ìµœëŒ€ê³µì•½ìˆ˜ê°€ 1ì´ ì•„ë‹Œ ì‚¬ê°í˜•ì€ ë™ì¼ íŒ¨í„´ì´ g*g ê°¯ìˆ˜ ë§Œí¼ ë°˜ë³µë¨
 	long long w2 = w / g, h2 = h / g;
 	long long total = (long long)w * (long long)h;
-	//¹Ì´Ï ÆÐÅÏ¾È¿¡¼­ Àß¶óÁö´Â »ç°¢ÇüÀÇ °¹¼ö
+	//ë¯¸ë‹ˆ íŒ¨í„´ì•ˆì—ì„œ ìž˜ë¼ì§€ëŠ” ì‚¬ê°í˜•ì˜ ê°¯ìˆ˜
 	long long mini = w2+h2-1LL;
-	//¼±¿¡ ±×ÀÌ´Â »ç°¢ÇüÀÇ ÆÐÅÏÀº g°³¸¸Å­ ¹Ýº¹µÇ¹Ç·Î g°³¸¦ °öÇØÁØ´Ù.
+	//ì„ ì— ê·¸ì´ëŠ” ì‚¬ê°í˜•ì˜ íŒ¨í„´ì€ gê°œë§Œí¼ ë°˜ë³µë˜ë¯€ë¡œ gê°œë¥¼ ê³±í•´ì¤€ë‹¤.
 	answer = total - mini * g;
 
 	return answer;
