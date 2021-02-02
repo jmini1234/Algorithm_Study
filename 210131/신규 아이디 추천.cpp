@@ -34,6 +34,5 @@ string solution(string new_id) {
             s+=s[s.size()-1];
         }
     }
-    
-    return s;
+        return s;
 }
