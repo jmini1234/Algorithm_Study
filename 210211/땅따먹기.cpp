@@ -1,27 +1,34 @@
-#include <bits/stdc++.h>
-
-#define NUM_COLUMN 4
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-int find_max(vector<int> v, int except) {
-    int max = 0;
-    for (int idx = 0; idx < v.size(); idx++) {
-        if (max < v[idx] && idx != except)
-            max = v[idx];
-    }
-    return max;
-}
+int dp[100000][4];
 
 int solution(vector<vector<int> > land)
 {
     int answer = 0;
-    vector<vector<int>>::iterator viter = land.begin(), next;
-    for (next = viter + 1; next != land.end(); next++) {
-        for (int idx = 0; idx < NUM_COLUMN; idx++) {
-            (*next)[idx] += find_max((*viter), idx);
-        }
-        viter = next;
+    
+    for(int i=0;i<4;i++){
+        dp[0][i]=land[0][i];
     }
-    return find_max((*viter), -1);
+ 
+    for(int i=1;i<land.size();i++){
+        //지금열
+        for(int j=0;j<4;j++){
+            int mx=0;
+            //전의 열
+            for(int k=0;k<4;k++){
+                if(j == k) continue;
+                if(mx<=dp[i-1][k]) mx=dp[i-1][k];              
+            }
+            dp[i][j] = mx + land[i][j];
+        }
+    }
+ 
+    for(int i=0;i<4;i++){
+        answer=max(answer, dp[land.size()-1][i]);       
+    }
+    
+    return answer;
 }
