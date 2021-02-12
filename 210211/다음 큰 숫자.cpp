@@ -1,16 +1,24 @@
-#include <bits/stdc++.h>
+#include <string>
+#include <vector>
+
 using namespace std;
 
-int binary_counter(int num){
-    return bitset<32>(num).count();
+int count(int n){
+    int cnt=0;
+    while(n){
+        if(n%2) cnt++;
+        n/=2;
+    }
+    return cnt;
 }
 
 int solution(int n) {
+    int answer = 0;
     
-    int answer = n+1;
-    while(1){
-        if (binary_counter(n) == binary_counter(answer)) break;
-        answer++;    
+    int cnt = count(n);
+    
+    for(int i=n+1;;i++){
+        if(count(i) == cnt) return i;
     }
-    return answer;
+
 }
